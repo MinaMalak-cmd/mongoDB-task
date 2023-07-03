@@ -6,7 +6,6 @@ const seedUsers = [
         "_id": "64a2835d0d891295bcb000c8",
         "username": "User 1",
         "age": 23,
-        "password": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         "notes": [],
         "__v": 0
     },
@@ -14,7 +13,6 @@ const seedUsers = [
         "_id": "64a2836b0d891295bcb000ca",
         "username": "User 2",
         "age": 24,
-        "password": "nnnnn",
         "notes": [],
         "__v": 0
     },
@@ -22,14 +20,12 @@ const seedUsers = [
         "_id": "64a283720d891295bcb000cc",
         "username": "User 3",
         "age": 25,
-        "password": "lllll",
         "notes": [],
         "__v": 0
     },
     {
         "username": "User 4",
         "age": 44,
-        "password": "cccc",
         "notes": [],
         "__v": 0
     }

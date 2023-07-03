@@ -7,10 +7,6 @@ const userSchema = new Schema(
       required: true,
     },
     age: Number,
-    password: {
-      type: String,
-      required: true,
-    },
     notes: [{
       type: Schema.Types.ObjectId,
       ref: "Note"
