@@ -10,10 +10,10 @@ const getAllNotes = async (req, res, next) => {
 // Get to do information for specific user
 const getANote = async (req, res, next) => {
   try {
-    const { noteId, owner } = req.params;
+    const { noteId, ownerId } = req.params;
     const result = await noteModel.findOne({
       _id: noteId,
-      owner,
+      owner: ownerId,
     }).populate("owner");
     return result
       ? res.json({ message: "Done", result })
@@ -81,10 +81,10 @@ const updateNote = async (req, res, next) => {
 // Delete an existing to do for specific user.
 const deleteNote = async (req, res, next) => {
   try {
-    const { noteId, owner } = req.params;
+    const { noteId, ownerId } = req.params;
     const selectedNote = await noteModel.findOneAndDelete({
       _id: noteId,
-      owner,
+      owner:ownerId,
     });
     return selectedNote
       ? res.json({ message: "Done" })

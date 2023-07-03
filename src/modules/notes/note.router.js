@@ -6,11 +6,10 @@ const router = Router();
 // for development purposes only
 router.get('/', noteController.getAllNotes);
 
-router.get('/:noteId/:owner', noteController.getANote);
-router.get('/:owner', noteController.getAllNotesForSpecificUser);
+router.get('/:noteId/:ownerId', noteController.getANote);
 router.post('/', noteController.addNote);
 router.put('/:noteId', noteController.updateNote);
-router.delete('/:noteId/:owner', noteController.deleteNote);
+router.delete('/:noteId/:ownerId', noteController.deleteNote);
 
 export default router;
 
