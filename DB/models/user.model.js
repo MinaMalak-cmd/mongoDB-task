@@ -7,13 +7,13 @@ const userSchema = new Schema(
       required: true,
     },
     age: Number,
-    role: {
-        type: String,
-        enum: ['admin', 'user']
-    }
+    notes: [{
+      type: Schema.Types.ObjectId,
+      ref: "Note"
+    }]
   },
   {
-    timestamps: true,
+    timestamps: false,
   }
 );
 const userModel = model('User', userSchema);

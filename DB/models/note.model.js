@@ -7,7 +7,11 @@ const noteSchema = new Schema(
       required: true,
     },
     description: String,
-    userId: { type: String, required: true },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: 'User Id is required'
+    },
   },
   {
     timestamps: true,
