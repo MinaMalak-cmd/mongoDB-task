@@ -6,12 +6,13 @@ const noteSchema = new Schema(
       type: String,
       required: true,
     },
-    description: String
+    description: String,
+    userId: { type: String, required: true },
   },
   {
     timestamps: true,
   }
 );
-const noteModel = model('Note', noteSchema);
+const noteModel = model("Note", noteSchema);
 
 export default noteModel;
