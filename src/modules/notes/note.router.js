@@ -7,6 +7,7 @@ const router = Router();
 router.get('/', noteController.getAllNotes);
 
 router.get('/:noteId/:owner', noteController.getANote);
+router.get('/:owner', noteController.getAllNotesForSpecificUser);
 router.post('/', noteController.addNote);
 router.put('/:noteId', noteController.updateNote);
 router.delete('/:noteId/:owner', noteController.deleteNote);

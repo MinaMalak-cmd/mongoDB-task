@@ -27,6 +27,25 @@ const getANote = async (req, res, next) => {
   }
 };
 
+//  Get all to do for specific user
+const getAllNotesForSpecificUser = async (req, res, next) => {
+  try {
+    const { owner } = req.params;
+    const result = await noteModel.find({
+      owner,
+    }).populate("owner");
+    return result
+      ? res.json({ message: "Done", result })
+      : res.json({ message: "No notes found for this user" });
+  } catch (error) {
+    if (error.path === "_id")
+      return res.json({ message: "No notes for this user" });
+    if (error.path === "owner")
+      return res.json({ message: "User Not found" });
+    return res.json({ message: "No data found" });
+  }
+};
+
 // Add new to do for specific user.
 const addNote = async (req, res, next) => {
   try {
@@ -78,4 +97,4 @@ const deleteNote = async (req, res, next) => {
     return res.json({ message: "You can't delete this note" });
   }
 };
-export { getANote, addNote, updateNote, deleteNote, getAllNotes };
+export { getANote, addNote, updateNote, deleteNote, getAllNotes, getAllNotesForSpecificUser };
