@@ -7,4 +7,5 @@ const port = 5000
 
 bootstrap(app, express);
 
+// to run the app `npm run start`
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
