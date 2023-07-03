@@ -1,12 +1,14 @@
 import connectDB  from "../DB/connection.js";
+import seedDB from "../DB/seeds.js";
 import noteRouter from "./modules/notes/note.router.js";
 import userRouter from "./modules/users/user.router.js";
 
-const bootstrap = (app, express) => {
+const bootstrap = async (app, express) => {
   app.use(express.json()); // convert buffer data
   
-  connectDB();
+  await connectDB();
 
+  await seedDB();
   //Setup App Routing
   app.use("/note", noteRouter);
   app.use("/user", userRouter);
