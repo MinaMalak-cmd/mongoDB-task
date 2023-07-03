@@ -11,20 +11,8 @@ const bootstrap = async (app, express, session) => {
   await connectDB();
   await seedDB();
 
-  //use sessions for tracking logins
-  // app.use(
-  //   session({
-  //     secret: "mina",
-  //     resave: true,
-  //     saveUninitialized: false,
-  //     store: new MongoStore({
-  //       mongooseConnection: db,
-  //     }),
-  //   })
-  // );
 
   //Setup App Routing
-  // app.use(isAuthorized);
   app.use("/note", isAuthorized, noteRouter);
   app.use("/user", userRouter);
   app.use("*", (req, res, next) => {
