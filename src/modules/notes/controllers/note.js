@@ -1,9 +1,30 @@
 import noteModel from "../../../../DB/models/note.model.js";
 import userModel from "../../../../DB/models/user.model.js";
 
+// Get all to do notes 
 const getAllNotes = async (req, res, next) => {
   const notes = await noteModel.find().populate("owner");
   return res.json({ message: "Done", notes });
+};
+
+// Get to do information for specific user
+const getANote = async (req, res, next) => {
+  try {
+    const { noteId, owner } = req.params;
+    const result = await noteModel.findOne({
+      _id: noteId,
+      owner,
+    }).populate("owner");
+    return result
+      ? res.json({ message: "Done", result })
+      : res.json({ message: "No note found with this data" });
+  } catch (error) {
+    if (error.path === "_id")
+      return res.json({ message: "Note Not found" });
+    if (error.path === "owner")
+      return res.json({ message: "User Not found" });
+    return res.json({ message: "No data found" });
+  }
 };
 
 // Add new to do for specific user.
@@ -51,10 +72,10 @@ const deleteNote = async (req, res, next) => {
       : res.json({ message: "No note found with this data" });
   } catch (error) {
     if (error.path === "_id")
-      return res.json({ message: "Note Not found", error });
+      return res.json({ message: "Note Not found" });
     if (error.path === "owner")
-      return res.json({ message: "User Not found", error });
-    return res.json({ message: "You can't delete this note", error });
+      return res.json({ message: "User Not found" });
+    return res.json({ message: "You can't delete this note" });
   }
 };
-export { getAllNotes, addNote, updateNote, deleteNote };
+export { getANote, addNote, updateNote, deleteNote, getAllNotes };
