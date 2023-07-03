@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "49f48d2e-b49a-4c27-ba9b-75dc60c95305",
+		"name": "MongoDB task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24042125",
+		"_collection_link": "https://speeding-shadow-695076.postman.co/workspace/mongoDB~7426f1ce-bdab-4fac-95fa-3509718ddf4f/collection/24042125-49f48d2e-b49a-4c27-ba9b-75dc60c95305?action=share&creator=24042125&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "Add Note",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"noteName\":\"note3-4\",\r\n    \"description\":\"this is note3-4\",\r\n    \"owner\":\"64a283720d891295bcb000cc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/note",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateNote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"noteName\":\"note1 -modified\",\r\n    \"description\":\"this is note1 - modified\",\r\n    \"owner\":\"64a2835d0d891295bcb000c8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/note/64a283950d891295bcb000d0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"note",
+								"64a283950d891295bcb000d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllNotes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/note",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"note"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getANote",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/note/64a28d16abf84b9a52463ced/64a2836b0d891295bcb000ca",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"note",
+								"64a28d16abf84b9a52463ced",
+								"64a2836b0d891295bcb000ca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Note",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/note/64a28df4abf84b9a52463cf5/64a283720d891295bcb000cc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"note",
+								"64a28df4abf84b9a52463cf5",
+								"64a283720d891295bcb000cc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllNotesForSpecificUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/note/64a283720d891295bcb000cc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"note",
+								"64a283720d891295bcb000cc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"User 3\",\r\n    \"age\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
