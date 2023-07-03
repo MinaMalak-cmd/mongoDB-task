@@ -4,8 +4,9 @@ import userRouter from "./modules/users/user.router.js";
 
 const bootstrap = (app, express) => {
   app.use(express.json()); // convert buffer data
-
+  
   connectDB();
+
   //Setup App Routing
   app.use("/note", noteRouter);
   app.use("/user", userRouter);
